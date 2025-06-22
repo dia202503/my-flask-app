@@ -11,7 +11,7 @@ def fetch_html():
 
     try:
         headers = {
-            'User-Agent': 'MyFlaskFetcher/1.0',  # 非標準なUA
+            'User-Agent': 'Mozilla/5.0',  # 非標準なUA
             'Accept': 'text/html'
         }
 
