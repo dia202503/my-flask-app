@@ -1,10 +1,20 @@
-from flask import Flask
+from flask import Flask, Response
+import requests
 
 app = Flask(__name__)
 
+# 取得したいURLをここで指定
+TARGET_URL = 'https://noticeably-light-hen.ngrok-free.app/'
+
 @app.route('/')
-def hello():
-    return 'Hello, world! This is my first Render app!'
+def fetch_html():
+    try:
+        response = requests.get(TARGET_URL)
+        response.raise_for_status()
+        # レスポンスのHTMLをそのまま返す
+        return Response(response.text, mimetype='text/html')
+    except requests.exceptions.RequestException as e:
+        return f'Error fetching HTML: {e}', 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
