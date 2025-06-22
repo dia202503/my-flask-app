@@ -9,7 +9,11 @@ TARGET_URL = 'https://noticeably-light-hen.ngrok-free.app/'
 @app.route('/')
 def fetch_html():
     try:
-        response = requests.get(TARGET_URL)
+headers = {
+    'User-Agent': 'Mozilla/5.0',
+    'Accept': 'text/html'
+}
+response = requests.get(TARGET_URL, headers=headers)        
         response.raise_for_status()
         # レスポンスのHTMLをそのまま返す
         return Response(response.text, mimetype='text/html')
