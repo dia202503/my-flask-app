@@ -13,7 +13,7 @@ def fetch_html():
         headers = {
             'User-Agent': 'MyFlaskFetcher/1.0',  # 非標準なUA
             'Accept': 'text/html',
-            'ngrok-skip-browser-warning': 'true' 
+            'ngrok-skip-browser-warning': '1' 
         }
 
         response = requests.get(TARGET_URL, headers=headers)        
