@@ -12,7 +12,8 @@ def fetch_html():
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0',
-            'Accept': 'text/html'
+            'Accept': 'text/html',
+            'ngrok-skip-browser-warning': 'true' 
         }
 
         response = requests.get(TARGET_URL, headers=headers)        
